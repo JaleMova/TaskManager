@@ -1,0 +1,59 @@
+<!-- start page title -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box">
+      <div class="page-title-right">
+        <button (click)="createTask()"
+                class="btn btn-warning mb-2">
+          <i class="uil-plus"></i>
+          New Task
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end page title -->
+
+<div class="row justify-content-center">
+  <div class="col-10">
+    <table class="table table-striped table-bordered">
+      <caption>List of tasks</caption>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>AssignTo</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{task.id}}</td>
+          <td>{{task.title}}</td>
+          <td>{{task.description}}</td>
+          <td>{{task.deadline}}</td>
+          <td>{{task.status}}</td>
+          <td>{{task.name}}</td>
+          <td class="table-action text-center">
+            <a (click)="editTask(task)"
+               title="Edit user"
+               class="action-icon text-success fw-bold cursor-pointer"><i class="pi pi-pencil"></i></a>
+            <a (click)="deleteTask(task)"
+               title="Delete user"
+               class="action-icon text-danger fw-bold px-2 cursor-pointer"><i class="pi pi-times"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p-confirmDialog [style]="{width: '25vw'}"
+                 key="positionDialog"
+                 [position]="'top'"
+                 [baseZIndex]="10000"
+                 rejectButtonStyleClass="p-button-outlined"></p-confirmDialog>
+<p-toast></p-toast>

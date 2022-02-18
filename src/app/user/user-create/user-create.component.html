@@ -1,0 +1,76 @@
+<div class="alert alert-warning mt-4"
+     role="alert"
+     *ngIf="!isFormValidated">
+  <i class="ms-Icon ms-Icon--Warning"></i> Form is not valid! Required*
+</div>
+<form [formGroup]="form"
+      class="pt-3">
+  <div class="row pb-3">
+    <div class="col-md-6 pe-1">
+      <label for="firstName"
+             class="form-label">First Name*</label>
+      <input formControlName="firstName"
+             type="text"
+             class="form-control"
+             id="firstName"
+             placeholder="First Name">
+    </div>
+
+    <div class="col-md-6 px-1">
+      <label for="lastName"
+             class="form-label">Last Name*</label>
+      <input formControlName="lastName"
+             type="text"
+             class="form-control"
+             id="lastName"
+             placeholder="Last Name">
+    </div>
+  </div>
+
+
+  <div class="row g-2">
+    <div class="col-md-6 px-1">
+      <label for="email"
+             class="form-label">Email*</label>
+      <input formControlName="email"
+             type="email"
+             class="form-control"
+             id="email"
+             placeholder="Email">
+    </div>
+
+    <div class="mb-3 col-md-6">
+      <label for="password"
+             class="form-label">Password*</label>
+      <input formControlName="password"
+             type="password"
+             class="form-control"
+             id="password"
+             placeholder="Password">
+    </div>
+  </div>
+
+  <div class="col ps-1 d-none">
+    <div class="row ps-2">
+      <div class="form-check">
+        <input class="form-check-input"
+               formControlName="isAdmin"
+               type="checkbox"
+               id="isAdmin">
+        <label class="form-check-label"
+               for="isAdmin">
+          Is Admin
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button type="submit"
+            class="btn btn-primary me-1"
+            (click)="createUser()">Create</button>
+    <button type="button"
+            class="btn btn-danger ms-1"
+            (click)="cancel()">Cancel</button>
+  </div>
+</form>
